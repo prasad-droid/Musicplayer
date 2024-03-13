@@ -1,0 +1,44 @@
+{% load static %} {% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show List</title>
+
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'liststyle.css'%}" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  </head>
+
+  <body>
+    <div>
+      <div class="container ">
+        <img
+          src="{{albums.image.2.link}}"
+          alt="abc"
+          class="img-responive w-25 d-block mx-auto mt-3"
+        />
+        <h3 class="text-center text-white">{{albums.name}}</h3>
+        <p class="text-center text-white">
+          <b>Followers : </b>{{albums.songCount}} Peoples
+        </p>
+      </div>
+      {%for song in albums.songs%}
+      <div class="card bg-none text-white">
+        <div class="card-head">
+          <img src="{{song.image.2.link}}" alt="" class="w-25 p-4" />
+          <h3 class="d-inline-block">{{song.name}}</h3>
+          <a href="/songplay/{{song.id}}" ><i class="fa-solid fa-play" style="color: #ffffff; font-size: 25px;"></i></a>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </body>
+</html>

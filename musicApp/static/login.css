@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.logmain {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.253), transparent),
+    url('./images/1_BpKpk1d7nnS8W5C2LC-nsg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-floating {
+  width: 300px;
+}
+
+.imglogo {
+  width: 50%;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.274);
+  width: 400px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline-primary {
+  border: 2px solid #9400ff !important;
+  color: #9400ff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #9400ff;
+}
+.btn-outline-primary:active {
+  background-color: #9400ff !important;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+.signup {
+  border: 1px solid white;
+  color: white;
+  width: 90%;
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+}
+.signup:hover {
+  background-color: white;
+  color: black;
+}
+.signup:active {
+  background-color: white !important;
+}

@@ -1,0 +1,67 @@
+{% load static %} {% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SongPlay</title>
+
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'songplaystyle.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="card text-white align-item-center">
+        <img
+          src="{{songs.image.2.link}}"
+          alt=""
+          srcset=""
+          class="mx-auto d-block w-50 mt-3"
+        />
+        <div class="details mt-2">
+          <h5 class="text-white">{{songs.name}}</h5>
+          <h6 class="text-white">{{songs.primaryArtists}}</h6>
+          <i class="fa-regular fa-heart" id="color" onclick="likeItem()"> </i>
+          <span id="songData" style="display: none"
+            >{{songs.id}} = {{songs.name}}</span
+          >
+        </div>
+
+        <div class="range mt-4 mx-5 d-flex">
+          <audio src="{{songs.downloadUrl.1.link}}" controls autoplay></audio>
+        </div>
+      </div>
+    </div>
+    <script>
+      let color = document.getElementById("color");
+      function likeItem() {
+        if (color.classList.contains("fa-regular")) {
+          color.classList.replace("fa-regular", "fa-solid");
+          color.style.color = "red";
+          addToLikedPlaylist();
+        } else if (color.classList.contains("fa-solid")) {
+          color.classList.replace("fa-solid", "fa-regular");
+          color.style.color = "black";
+        }
+      }
+
+      let songData = document.getElementById("songData");
+      function addToLikedPlaylist() {
+        let songid = songData.innerHTML.split("=")[0];
+        let songName = songData.innerHTML.split("=")[1];
+        let array = JSON.parse(localStorage["likedSong"]);
+        
+        array.push({ id: songid, name: songName });
+        localStorage["likedSong"] = JSON.stringify(array);
+      }
+    </script>
+  </body>
+</html>

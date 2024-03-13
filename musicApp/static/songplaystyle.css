@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background: url("https://i.ibb.co/8jBRq0j/pexels-c-tia-matos-1072179.jpg") !important;
+    background-size: cover;
+  }
+  
+  .bg-none {
+    background: transparent !important;
+  }
+  .card {
+    height: 450px;
+    width: 450px;
+    background-color: transparent;
+    display: block;
+    margin: auto;
+    margin-top: 80px;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 30px;
+    background: #f3f3ee67;
+    backdrop-filter: blur(2px);
+    border-radius: 50px;
+  }
+  .fontdiv{
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .details{
+    padding-left: 80px;
+  }
+  .range{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+  }
+  audio{
+    background-color: transparent !important;
+  }
+
+  audio::-webkit-media-controls-panel{
+    background:rgb(21, 255, 0) !important;
+    border-radius: 0px !important;
+    }
+
+  
