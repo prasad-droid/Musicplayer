@@ -47,19 +47,29 @@ def likepage(request):
 
 
 def songplay(request, string_id):
-    url = f'https://saavn.dev/songs?id={string_id}'
+    
+    url = f'https://saavn.dev/api/songs/{string_id}'
     response = requests.request("GET", url)
+    # print(response.json()['data'][0])
     return render(request, 'songplay.html', context={'songs': response.json()['data'][0]})
 
 
 def searchpage(request):
-    print(request.method)
-    if request.method == 'POST':
-        query = request.POST['search']
-        url = f"https://saavn.dev/search/all?query={query}"
-        print(url)
-        response = requests.request("GET", url)
-        print(response.json())
-        return render(request, 'like.html', context={"data": response.json()})
+    print(request.session)
+    if request.session['isloggedIn']:
+        request.session['isloggedIn']
+        url = "https://saavn.dev/api/search"
+        if request.method == 'POST':
+            query = request.POST['search']
+            querystring = {"query":query}
+            response = requests.get(url, params=querystring)
 
-    return render(request, 'like.html')
+            print(response.json())
+            return render(request, 'like.html', context={"data": response.json()})
+        else:
+            querystring = {"query":"new"}
+            response = requests.get(url, params=querystring)
+            print(response.json())
+            return render(request, 'like.html', context={"data": response.json()})
+    else:
+        return render('/login')

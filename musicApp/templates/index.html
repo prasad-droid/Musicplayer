@@ -77,13 +77,14 @@
           <div
             class="playlist d-flex mx-2 text-center flex-wrap align-content-start"
           >
-            {% for list in data.data.playlists %}
+            {% for list in data.data %}
             <a
               href="showlist/{{list.id}}"
               class="text-decoration-none cardlink"
             >
               <div class="card">
-                <img src="{{list.image.0.link}}" alt="" srcset="" />
+                <!-- <img src="{{list.image.0.link}}" alt="" srcset="" /> -->
+                <p>{{list.songs.0}}</p>
                 <span class="m-2"> {{list.songCount}} Songs</span>
               </div>
             </a>

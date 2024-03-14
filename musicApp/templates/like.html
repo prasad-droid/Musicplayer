@@ -43,51 +43,54 @@
             <input type="search" name="search" id="search" placeholder="&#128269 search..." />
             <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
-          <!-- {{data.data.songs.results}} -->
-
         </div>
         <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">
           <i class="fa-solid fa-user" data-bs-toggle="tooltip" data-bs-placement="left" title="User"></i></button>
       </div>
       
       <div class="containers">
-      <h3 style="color: white; padding-left:55px;">Songs</h3>
-      <div class="song d-flex m-5">
-      {% for x in data.data.songs.results %}
-      <a href="songplay/{{x.id}}" class="text-decoration-none cardlink">
-        <div class="card"> <img src="{{x.image.2.link}}" alt="" srcset="">
-          <p>{{x.title}}</p>
+        {% if data.data.songs.results %}
+          <h3 style="color: white; padding-left:55px;">Songs</h3>
+          <div class="song d-flex m-5">
+          {% for x in data.data.songs.results %}
+              <a href="songplay/{{x.id}}" class="text-decoration-none cardlink">
+                <div class="card">
+                  <img src="{{x.image.2.url}}" alt="" srcset="">
+                  <p>{{x.title}}</p>
+                </div>
+              </a>
+          {% endfor %}
         </div>
-      </a>
-      {% endfor %}
-      
-    </div>
+    {% endif %}
+    {% if data.data.playlists.results %}
     <h3 style="color: white; padding-left:55px;">Playlist</h3>
       <div class="song d-flex m-5">
       {% for x in data.data.playlists.results %}
       <a href="showlist/{{x.id}}" class="text-decoration-none cardlink">
-        <div class="card"> <img src="{{x.image.2.link}}" alt="" srcset="">
+        <div class="card"> <img src="{{x.image.2.url}}" alt="" srcset="">
           <p>{{x.title}}</p>
         </div>
       </a>
       {% endfor %}
   </div>
+  {% endif %}
+  {% if data.data.albums.results %}
   <h3 style="color: white; padding-left:55px;">Albums</h3>
   <div class="song d-flex m-5">
   {% for x in data.data.albums.results %}
   <a href="showalbum/{{x.id}}" class="text-decoration-none cardlink">
-    <div class="card"> <img src="{{x.image.2.link}}" alt="" srcset="">
+    <div class="card"> <img src="{{x.image.2.url}}" alt="" srcset="">
       <p style="font-size:19px;">{{x.title}}</p>
     </div>
   </a>
   {% endfor %}
 </div>
-
+{% endif %}
 
 
     </div>
   </div>
-  
+  </div>
+    
 </body>
-
 </html>
