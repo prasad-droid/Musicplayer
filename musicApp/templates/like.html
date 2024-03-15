@@ -29,11 +29,11 @@
             title="Home"></i></a>
         <a href="music" id="music"><i class="fa-solid fa-music" data-bs-toggle="tooltip" data-bs-placement="left"
             title="Library"></i></a>
-        <a href="likepage"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href=""><i class="fa-solid fa-sliders" data-bs-toggle="tooltip" data-bs-placement="left"
-            title="Equilizer"></i></a>
+            <a href=""><i class="fa-solid fa-sliders" data-bs-toggle="tooltip" data-bs-placement="left"
+              title="Equilizer"></i></a>
+              <a href="likepage"><i class="fa-solid fa-user"></i></a>
       </div>
-    </div>
+    </div>  
     <div class="contant" id="contant">
       <div class="navbar">
         <div class="searchbar">
@@ -44,8 +44,7 @@
             <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
-        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#myModal">
-          <i class="fa-solid fa-user" data-bs-toggle="tooltip" data-bs-placement="left" title="User"></i></button>
+       
       </div>
       
       <div class="containers">
@@ -62,7 +61,7 @@
           {% endfor %}
         </div>
     {% endif %}
-    {% if data.data.playlists.results %}
+    <!-- {% if data.data.playlists.results %}
     <h3 style="color: white; padding-left:55px;">Playlist</h3>
       <div class="song d-flex m-5">
       {% for x in data.data.playlists.results %}
@@ -73,7 +72,7 @@
       </a>
       {% endfor %}
   </div>
-  {% endif %}
+  {% endif %} -->
   {% if data.data.albums.results %}
   <h3 style="color: white; padding-left:55px;">Albums</h3>
   <div class="song d-flex m-5">

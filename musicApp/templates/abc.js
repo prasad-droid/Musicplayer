@@ -1,249 +1,169 @@
 data = {
-  success: True,
-  data: {
-    topQuery: {
-      results: [
-        {
-          id: "3274617",
-          title: "Pokemon Theme",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-500x500.jpg",
-            },
-          ],
-          type: "album",
-          language: "english",
-          description: "English Album",
-        },
-      ],
-      position: 0,
-    },
-    songs: {
-      results: [
-        {
-          id: "xc5lrJBM",
-          title: "Pokemon Theme Song",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-500x500.jpg",
-            },
-          ],
-          type: "song",
-          description: "The Hit Crew · Pokemon Theme Song",
-          primaryArtists: "The Hit Crew",
-          singers: "The Hit Crew",
-          language: "english",
-        },
-        {
-          id: "1MEN6Gzz",
-          title: "Pokémon Theme (TheFatRat Remix) [feat. Jason Paige]",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-500x500.jpg",
-            },
-          ],
-          type: "song",
-          description:
-            "Video Games Live, TheFatRat · Pokémon Theme (TheFatRat Remix) [feat. Jason Paige]",
-          primaryArtists: "Video Games Live, TheFatRat",
-          singers: "Video Games Live, TheFatRat, Jason Paige",
-          language: "english",
-        },
-        {
-          id: "ODUeeKmA",
-          title: "Pokemon (J&amp;E Remix)",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/971/Pokemon-English-2016-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/971/Pokemon-English-2016-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/971/Pokemon-English-2016-500x500.jpg",
-            },
-          ],
-          type: "song",
-          description: "Portion Boys · Pokemon",
-          primaryArtists: "Portion Boys",
-          singers: "Portion Boys",
-          language: "english",
-        },
-      ],
-      position: 1,
-    },
-    albums: {
-      results: [
-        {
-          id: "3274617",
-          title: "Pokemon Theme",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/405/Pokemon-Theme-English-2016-500x500.jpg",
-            },
-          ],
-          type: "album",
-          description: "2016 · English Album · Dank Tank",
-          year: "2016",
-          songIds: "UPj0NV13",
-          language: "english",
-        },
-        {
-          id: "2865989",
-          title: "Pokemon Theme Song",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/725/Pokemon-Theme-Song-English-2007-500x500.jpg",
-            },
-          ],
-          type: "album",
-          description: "2007 · English Album · The Hit Crew",
-          year: "2007",
-          songIds: "xc5lrJBM",
-          language: "english",
-        },
-        {
-          id: "15849543",
-          title: "Pokémon Theme (TheFatRat Remix) [feat. Jason Paige]",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/038/Pok-mon-Theme-TheFatRat-Remix-feat-Jason-Paige--English-2019-20190509013029-500x500.jpg",
-            },
-          ],
-          type: "album",
-          description: "2019 · English Album · Video Games Live, TheFatRat",
-          year: "2019",
-          songIds: "1MEN6Gzz",
-          language: "english",
-        },
-      ],
-      position: 2,
-    },
-    artists: {
-      results: [
-        {
-          id: "1677615",
-          title: "Poke Mon",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://c.saavncdn.com/308/Pokemon-Theme-Song-English-2014-50x50.jpg",
-            },
-            {
-              quality: "150x150",
-              url: "https://c.saavncdn.com/308/Pokemon-Theme-Song-English-2014-150x150.jpg",
-            },
-            {
-              quality: "500x500",
-              url: "https://c.saavncdn.com/308/Pokemon-Theme-Song-English-2014-500x500.jpg",
-            },
-          ],
-          type: "artist",
-          description: "Artist",
-          position: 1,
-        },
-        {
-          id: "4484019",
-          title: "la pokemon",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-            {
-              quality: "150x150",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-            {
-              quality: "500x500",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-          ],
-          type: "artist",
-          description: "Singer",
-          position: 2,
-        },
-        {
-          id: "7191703",
-          title: "Pokemoneinstein",
-          image: [
-            {
-              quality: "50x50",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-            {
-              quality: "150x150",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-            {
-              quality: "500x500",
-              url: "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
-            },
-          ],
-          type: "artist",
-          description: "Singer",
-          position: 3,
-        },
-      ],
-      position: 5,
-    },
-    playlists: { results: [], position: 4 },
+  id: "xzc4ZHAW",
+  name: "Middle Finger",
+  type: "song",
+  year: 2020,
+  releaseDate: "2020-12-16",
+  duration: 217,
+  label: "Single Track Haryanvi",
+  explicitContent: False,
+  playCount: 2113167,
+  language: "haryanvi",
+  hasLyrics: True,
+  lyricsId: "",
+  url: "https://www.jiosaavn.com/song/middle-finger/CBIIBS54dmQ",
+  copyright: "© 2020 Single Track Haryanvi",
+  album: {
+    id: "24030172",
+    name: "Middle Finger",
+    url: "https://www.jiosaavn.com/album/middle-finger/X5E72F5y3qA_",
   },
+  artists: {
+    primary: [
+      {
+        id: "6025448",
+        name: "Khasa Aala Chahar",
+        role: "primary_artists",
+        image: [
+          {
+            quality: "50x50",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_50x50.jpg",
+          },
+          {
+            quality: "150x150",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_150x150.jpg",
+          },
+          {
+            quality: "500x500",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_500x500.jpg",
+          },
+        ],
+        type: "artist",
+        url: "https://www.jiosaavn.com/artist/khasa-aala-chahar-songs/zEmF3NPyJ,o_",
+      },
+    ],
+    featured: [],
+    all: [
+      {
+        id: "6025448",
+        name: "Khasa Aala Chahar",
+        role: "music",
+        image: [
+          {
+            quality: "50x50",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_50x50.jpg",
+          },
+          {
+            quality: "150x150",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_150x150.jpg",
+          },
+          {
+            quality: "500x500",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_500x500.jpg",
+          },
+        ],
+        type: "artist",
+        url: "https://www.jiosaavn.com/artist/khasa-aala-chahar-songs/zEmF3NPyJ,o_",
+      },
+      {
+        id: "1091113",
+        name: "DJ Sky",
+        role: "music",
+        image: [
+          {
+            quality: "50x50",
+            url: "https://c.saavncdn.com/855/Updown-Punjabi-2017-20171127-50x50.jpg",
+          },
+          {
+            quality: "150x150",
+            url: "https://c.saavncdn.com/855/Updown-Punjabi-2017-20171127-150x150.jpg",
+          },
+          {
+            quality: "500x500",
+            url: "https://c.saavncdn.com/855/Updown-Punjabi-2017-20171127-500x500.jpg",
+          },
+        ],
+        type: "artist",
+        url: "https://www.jiosaavn.com/artist/dj-sky-songs/psMcED6toLU_",
+      },
+      {
+        id: "6025448",
+        name: "Khasa Aala Chahar",
+        role: "singer",
+        image: [
+          {
+            quality: "50x50",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_50x50.jpg",
+          },
+          {
+            quality: "150x150",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_150x150.jpg",
+          },
+          {
+            quality: "500x500",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_500x500.jpg",
+          },
+        ],
+        type: "artist",
+        url: "https://www.jiosaavn.com/artist/khasa-aala-chahar-songs/zEmF3NPyJ,o_",
+      },
+      {
+        id: "6025448",
+        name: "Khasa Aala Chahar",
+        role: "lyricist",
+        image: [
+          {
+            quality: "50x50",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_50x50.jpg",
+          },
+          {
+            quality: "150x150",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_150x150.jpg",
+          },
+          {
+            quality: "500x500",
+            url: "https://c.saavncdn.com/artists/Khasa_Aala_Chahar_001_20230313111956_500x500.jpg",
+          },
+        ],
+        type: "artist",
+        url: "https://www.jiosaavn.com/artist/khasa-aala-chahar-songs/zEmF3NPyJ,o_",
+      },
+    ],
+  },
+  image: [
+    {
+      quality: "50x50",
+      url: "https://c.saavncdn.com/119/Middle-Finger-Haryanvi-2020-20201216120800-50x50.jpg",
+    },
+    {
+      quality: "150x150",
+      url: "https://c.saavncdn.com/119/Middle-Finger-Haryanvi-2020-20201216120800-150x150.jpg",
+    },
+    {
+      quality: "500x500",
+      url: "https://c.saavncdn.com/119/Middle-Finger-Haryanvi-2020-20201216120800-500x500.jpg",
+    },
+  ],
+  downloadUrl: [
+    {
+      quality: "12kbps",
+      url: "https://aac.saavncdn.com/119/01be1a44fe6b590a1ae33e084d1aa681_12.mp4",
+    },
+    {
+      quality: "48kbps",
+      url: "https://aac.saavncdn.com/119/01be1a44fe6b590a1ae33e084d1aa681_48.mp4",
+    },
+    {
+      quality: "96kbps",
+      url: "https://aac.saavncdn.com/119/01be1a44fe6b590a1ae33e084d1aa681_96.mp4",
+    },
+    {
+      quality: "160kbps",
+      url: "https://aac.saavncdn.com/119/01be1a44fe6b590a1ae33e084d1aa681_160.mp4",
+    },
+    {
+      quality: "320kbps",
+      url: "https://aac.saavncdn.com/119/01be1a44fe6b590a1ae33e084d1aa681_320.mp4",
+    },
+  ],
 };

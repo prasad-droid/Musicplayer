@@ -5,6 +5,7 @@
 body {
   background: url("https://i.ibb.co/8jBRq0j/pexels-c-tia-matos-1072179.jpg") !important;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bg-none {

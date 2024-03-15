@@ -28,11 +28,10 @@
         />
         <div class="details mt-2">
           <h5 class="text-white">{{songs.name}}</h5>
-          <h6 class="text-white">{{songs.primaryArtists}}</h6>
+          <h6 class="text-white">{{songs.artists.primary.0.name}}</h6>
           <i class="fa-regular fa-heart" id="color" onclick="likeItem()"> </i>
-          <span id="songData" style="display: none"
-            >{{songs.id}} = {{songs.name}}</span
-          >
+          <i class="fa-solid fa-plus"></i>
+          
         </div>
 
         <div class="range mt-4 mx-5 d-flex">

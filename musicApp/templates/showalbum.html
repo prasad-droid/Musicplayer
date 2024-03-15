@@ -21,7 +21,7 @@
     <div>
       <div class="container ">
         <img
-          src="{{albums.image.2.link}}"
+          src="{{albums.image.2.url }}"
           alt="abc"
           class="img-responive w-25 d-block mx-auto mt-3"
         />
@@ -33,7 +33,7 @@
       {%for song in albums.songs%}
       <div class="card bg-none text-white">
         <div class="card-head">
-          <img src="{{song.image.2.link}}" alt="" class="w-25 p-4" />
+          <img src="{{song.image.2.url}}" alt="" class="p-4" width="200px"/>
           <h3 class="d-inline-block">{{song.name}}</h3>
           <a href="/songplay/{{song.id}}" ><i class="fa-solid fa-play" style="color: #ffffff; font-size: 25px;"></i></a>
         </div>

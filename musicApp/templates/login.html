@@ -18,7 +18,8 @@
   <body>
     <div class="logmain d-flex justify-content-center align-items-center">
       <div class="form d-flex justify-content-center align-items-center p-3">
-        <form action="">
+        <form method="post">
+          {%csrf_token%}
           <img
             src="{% static 'Capture-removebg-preview.png'%}"
             alt=""
@@ -52,21 +53,11 @@
               >Forget password</a
             >
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary mt-2 d-block mx-auto"
-          >
+          <button type="submit" class="btn btn-primary mt-2 d-block mx-auto">
             Log In
           </button>
           <hr />
-          <button type="submit" value="submit" class="btn signup">
-            <a
-              href="signup"
-              target="_blank"
-              class="text-dark text-decoration-none"
-              >Sign Up</a
-            >
-          </button>
+          <a href="signup" class="d-block mx-auto text-dark text-decoration-none">Sign Up</a>
         </form>
       </div>
     </div>
