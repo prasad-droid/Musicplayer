@@ -1,12 +1,12 @@
 music visualizer
 music equlizer
-user profile 
 layric
 extra song when api was not working at that time 
 shuffle song 
 
 ----------------------------on going
+----------------------------done 
+user profile 
 create custom playlist
 insert and delete song from playlist 
-----------------------------done 
 liked song 

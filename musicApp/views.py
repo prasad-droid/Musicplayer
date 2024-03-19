@@ -109,3 +109,17 @@ def searchpage(request):
         return render(request, 'like.html', context={"data": response.json(),"userD":userDetails})
         
 
+def profile(request):
+    user = request.session.get('user')
+    if user:
+        print('user',user)
+        userDetails = models.UserProfile.objects.filter(id = user)[0]
+        return render(request,'profile.html',context={'user':userDetails})
+    else:
+        return redirect('/login')
+    
+def logout_view(request):
+    # Clear the user's session
+    request.session.clear()
+    # Redirect to the home page or any other desired URL
+    return redirect('/')
