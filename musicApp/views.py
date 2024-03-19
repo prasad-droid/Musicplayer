@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
+from django.http import JsonResponse
 from . import models 
-import requests
+import requests,json
 
 
 # Create your views here.
@@ -18,7 +19,7 @@ def loginpage(request):
         user = models.UserProfile.objects.filter(email=email,password=password)
         # print(user.all().values()[0]['id'])
         if len(user) == 1:
-            # request.session['user'] = user.all().values()[0]['id'] 
+            request.session['user'] = user.all().values()[0]['id'] 
             print("Successfully login")
             return redirect('/')
         else :
@@ -68,29 +69,43 @@ def likepage(request):
 
 
 def songplay(request, string_id):
-    
-    url = f'https://saavn.dev/api/songs/{string_id}'
-    response = requests.request("GET", url)
-    print(response.json()['data'][0])
-    return render(request, 'songplay.html', context={'songs': response.json()['data'][0]})
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+        user = request.session.get('user')
+        userDetails = models.UserProfile.objects.get(id=user)
+        userDetails.liked_songs = data
+        userDetails.save()
+        return JsonResponse({'message': 'Data received successfully'})
+    else:
+        url = f'https://saavn.dev/api/songs/{string_id}'
+        response = requests.request("GET", url)
+        context = {'songs': response.json()['data'][0]}
+        # Render the template
+        return render(request, 'songplay.html', context)
+        
+      
 
 
 def searchpage(request):
-    # print(request.session['user'])
-    # del request.session['user'] 
-    # if request.session['user']:
-    #     pass
-    # else:
-    #     redirect('/login')
+    user = request.session.get('user')
+    if user:
+        print('user',user)
+        userDetails = models.UserProfile.objects.filter(id = user)[0]
+    else:
+        return redirect('/login')
+        
+    print(userDetails)
     url = "https://saavn.dev/api/search"
     if request.method == 'POST':
         query = request.POST['search']
         querystring = {"query":query}
         response = requests.get(url, params=querystring)
-        # print(response.json())
-        return render(request, 'like.html', context={"data": response.json()})
+        return render(request, 'like.html', context={"data": response.json(),"userD":userDetails})
     else:
         querystring = {"query":"new"}
         response = requests.get(url, params=querystring)
         # print(response.json())
-        return render(request, 'like.html', context={"data": response.json()})
+        return render(request, 'like.html', context={"data": response.json(),"userD":userDetails})
+        
+

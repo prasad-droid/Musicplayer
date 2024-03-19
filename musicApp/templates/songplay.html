@@ -30,15 +30,37 @@
           <h5 class="text-white">{{songs.name}}</h5>
           <h6 class="text-white">{{songs.artists.primary.0.name}}</h6>
           <i class="fa-regular fa-heart" id="color" onclick="likeItem()"> </i>
-          <i class="fa-solid fa-plus"></i>
-          
+          <i
+            class="fa-solid fa-plus"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+          ></i>
         </div>
 
         <div class="range mt-4 mx-5 d-flex">
           <audio src="{{songs.downloadUrl.1.url}}" controls autoplay></audio>
         </div>
+        <div id="songData" style="opacity: 0">{{songs.id}}={{songs.name}}</div>
       </div>
     </div>
+
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Select Playlist</h3>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="playlistArea"></div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="addToPlaylist()">
+              Add to Playlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       let color = document.getElementById("color");
       function likeItem() {
@@ -49,6 +71,7 @@
         } else if (color.classList.contains("fa-solid")) {
           color.classList.replace("fa-solid", "fa-regular");
           color.style.color = "black";
+          removeFromLiked();
         }
       }
 
@@ -57,9 +80,95 @@
         let songid = songData.innerHTML.split("=")[0];
         let songName = songData.innerHTML.split("=")[1];
         let array = JSON.parse(localStorage["likedSong"]);
-        
+
         array.push({ id: songid, name: songName });
         localStorage["likedSong"] = JSON.stringify(array);
+        updateTable(1);
+      }
+
+      function removeFromLiked() {
+        let array = JSON.parse(localStorage["likedSong"]);
+        array.forEach((element) => {
+          if (element.id == songData.innerHTML.split("=")[0]) {
+            index = array.indexOf(element);
+            array.splice(index, 1);
+          }
+        });
+        localStorage["likedSong"] = JSON.stringify(array);
+        updateTable(0);
+      }
+
+      const isLiked = () => {
+        let array = JSON.parse(localStorage["likedSong"]);
+        array.forEach((element) => {
+          if (element.id == songData.innerHTML.split("=")[0]) {
+            color.classList.replace("fa-regular", "fa-solid");
+            color.style.color = "red";
+          }
+        });
+      };
+
+      const updateTable = (toggle) => {
+        let data = JSON.parse(localStorage["likedSong"]);
+        fetch("/songplay/" + songData.innerHTML.split("=")[0], {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCookie("csrftoken"),
+          },
+          body: JSON.stringify({ data: data }),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            console.log(response);
+            return response.json(); // Parse the response body as JSON
+          })
+          .then((data) => {
+            console.log("Response from server:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
+
+      function getCookie(name) {
+        const cookieValue = document.cookie
+          .split("; ")
+          .find((cookie) => cookie.startsWith(name + "="))
+          .split("=")[1];
+        return cookieValue;
+      }
+
+      isLiked();
+
+      // playlists
+      function showplaylist() {
+        let area = document.getElementById("playlistArea");
+        let d2 = JSON.parse(localStorage["playlists"]);
+        d2.forEach((list) => {
+          let lkList = document.createElement("p");
+          lkList.innerHTML = `
+            <input type="radio" name="list" value="${list.name}">${list.name}
+          `;
+          area.appendChild(lkList);
+        });
+      }
+      showplaylist();
+
+      function addToPlaylist() {
+        let d2 = JSON.parse(localStorage["playlists"]);
+        let songID = songData.innerHTML.split("=")[0];
+        let songName = songData.innerHTML.split("=")[1];
+        let lists = document.querySelectorAll('input[type="radio"]');
+        lists.forEach((list,index) => {
+          if(list.checked){
+            d2[index].songs.push({"id":songID,'name':songName})
+            localStorage['playlists'] = JSON.stringify(d2)
+            console.log(localStorage);
+          }
+        });
       }
     </script>
   </body>

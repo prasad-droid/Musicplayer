@@ -127,7 +127,7 @@
 
   function addToPlaylist() {
     const inputSongName = document.getElementById("inputName").value.trim();
-    let list = JSON.parse(localStorage.getItem('list'))
+    let list = JSON.parse(localStorage.getItem('playlists'))
     id++;
     if (inputSongName !== "") {
       let playlist = {
@@ -137,7 +137,7 @@
       };
       
       list.push(playlist)
-      localStorage.setItem('list', JSON.stringify(list));
+      localStorage.setItem('playlists', JSON.stringify(list));
 
       document.getElementById("inputName").value = "";
     }
@@ -149,10 +149,15 @@
   function showplaylist() {
     const imageSrc = "static/size_m.jpg";
     const playlistItems = document.getElementById("playlistItems");
+    // const likedItems = JSON.parse(localStorage['likedSongs'])
     playlistItems.innerHTML = "";
 
+    let likedPlaylist = document.createElement('p')
+    likedPlaylist.innerHTML = `<a href="playlist/101" style="margin-left:5px; text-decoration :none; color:white;"> <img  src="${imageSrc}" alt=""style="height:100px; margin-top:10px; "> </br> Liked Songs</a>`
+    playlistItems.appendChild(likedPlaylist)
+
     console.log(localStorage)
-    let playlists = JSON.parse(localStorage['list'])
+    let playlists = JSON.parse(localStorage['playlists'])
     for (i = 0; i < playlists.length; i++) {
       let list = playlists[i]
       

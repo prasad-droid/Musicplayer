@@ -9,5 +9,5 @@ class UserProfile(models.Model):
     liked_songs = models.CharField(max_length=255)
     playlists = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.username
+    # def __str__(self):
+    #     return self.username

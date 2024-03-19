@@ -18,9 +18,13 @@
         text-decoration: none;
         font-size: 18px;
       }
-      li{
-        list-style: none;
-        
+      .remove{
+        /* list-style: none; */
+        float: right;
+        background: none;
+        border: none;
+        outline: none;
+        color: black;
       }
       .d-flex {
         width: 200px;
@@ -61,7 +65,7 @@
             <h1 id="listName"></h1>
             <div class="details">
             <img src={%static 'size_m.jpg' %} alt="" srcset=""/>
-            <ul class="text-white" id="Songname"></ul>
+            <ol class="text-white" id="Songname"></ol>
           </div>
           </div>
           
@@ -70,14 +74,44 @@
          
       <script>
           let likedSong = JSON.parse(localStorage['likedSong'])
-          document.getElementById('listName').innerHTML = "Liked Songs"
+          let playlists= JSON.parse(localStorage['playlists'])
+          //PENDING 
+          console.log(location.href)
+          let playlistID = location.href.split('/')
+          if(playlistID[playlistID.length-1] == '101'){
+            document.getElementById('listName').innerHTML = "Liked Songs"
+          }else{
+            playlists.forEach(playlist=>{
+              console.log('done');
+              if(playlist.playlistId == playlistID[playlistID.length-1]){
+                document.getElementById('listName').innerHTML = playlist.name
+              }
+            })
+          }
           console.log(likedSong)
-          likedSong.forEach(song=>{
-            let link =  document.createElement('li')
-            //link.setAttribute('href','/songplay/'+song.id)
-            link.innerHTML=`<a href="/songplay/${song.id}">  <img src="{{songs.image.2.link}}"/> ${song.name}</a>`  
-            document.getElementById('Songname').appendChild(link)
-          })
+          function showlist()
+          {
+            document.getElementById('Songname').innerHTML=''
+            likedSong.forEach((song,index)=>{
+              let link =  document.createElement('li')
+              //link.setAttribute('href','/songplay/'+song.id)
+              link.innerHTML=`<a href="/songplay/${song.id}">  <img src="{{songs.image.2.link}}"/> ${song.name}</a> 
+              <button class="remove" onclick="removeLiked(${index})">
+                <i class="fa-solid fa-trash"></i>
+                </button>
+                `  
+                document.getElementById('Songname').appendChild(link)
+              })
+              }
+
+          function removeLiked(index){
+            console.log(index);
+            let likedSong = JSON.parse(localStorage['likedSong'])
+            likedSong.splice(index,1)
+            localStorage['likedSong'] = JSON.stringify(likedSong)
+             showlist()
+          }
+          showlist()
       </script>
 </body>
 </html>

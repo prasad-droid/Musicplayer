@@ -43,6 +43,9 @@
             <input type="search" name="search" id="search" placeholder="&#128269 search..." />
             <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
+          {%if userD%}
+          <p>Welcome {{userD.username}}</p>
+          {% endif %}
         </div>
        
       </div>
@@ -93,3 +96,11 @@
     
 </body>
 </html>
+
+<script>
+  if (!localStorage.hasOwnProperty("likedSong")) {
+        localStorage.setItem("likedSong", "[]");
+        localStorage.setItem("playlists", "[]");
+      }
+      
+</script>
