@@ -15,10 +15,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      #lyricsContainer{
+        display: none;
+        overflow-y: scroll;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="main">
+    <div class="main d-flex">
       <div class="card text-white align-item-center">
         <img
           src="{{songs.image.2.url}}"
@@ -35,12 +41,16 @@
             data-bs-toggle="modal"
             data-bs-target="#myModal"
           ></i>
+          <i class="fa-solid fa-music" onclick="fetchLyrics()"></i>
         </div>
 
         <div class="range mt-4 mx-5 d-flex">
           <audio src="{{songs.downloadUrl.1.url}}" controls autoplay></audio>
         </div>
         <div id="songData" style="opacity: 0">{{songs.id}}={{songs.name}}</div>
+      </div>
+      <div class="card text-white align-item-center" id="lyricsContainer">
+        <h3>Lyrics</h3>
       </div>
     </div>
 
@@ -169,6 +179,18 @@
             console.log(localStorage);
           }
         });
+      }
+
+      async function fetchLyrics(){
+        document.getElementById('lyricsContainer').style.display = 'block'
+        let id = songData.innerHTML.split("=")[0]
+        console.log(id);
+        let response = await fetch(`https://saavn.dev/api/songs/${id}/lyrics`)
+        data = await response.json()
+        console.log(data['data']);
+        let p = document.createElement('p')
+        p.innerHTML = data['data'].lyrics
+        document.getElementById('lyricsContainer').appendChild(p)
       }
     </script>
   </body>

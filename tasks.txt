@@ -1,10 +1,10 @@
 music visualizer
 music equlizer
-layric
 extra song when api was not working at that time 
 shuffle song 
 
 ----------------------------on going
+layric
 ----------------------------done 
 user profile 
 create custom playlist
