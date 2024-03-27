@@ -99,7 +99,10 @@
 
 <script>
   if (!localStorage.hasOwnProperty("likedSong")) {
-        localStorage.setItem("likedSong", "[]");
+        localStorage.setItem("likedSong", "[{\"playlistId\":101,\"name\":\"Liked Songs\",\"songs\":[]}]");
+      }
+    
+      if (!localStorage.hasOwnProperty("playlists")) {
         localStorage.setItem("playlists", "[]");
       }
       

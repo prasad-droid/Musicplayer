@@ -90,27 +90,30 @@
         let songid = songData.innerHTML.split("=")[0];
         let songName = songData.innerHTML.split("=")[1];
         let array = JSON.parse(localStorage["likedSong"]);
-
-        array.push({ id: songid, name: songName });
+        if(!array[0].songs){
+          array[0].songs=[]
+        }
+        array[0].songs.push({ id: songid, name: songName });
         localStorage["likedSong"] = JSON.stringify(array);
         updateTable(1);
       }
 
       function removeFromLiked() {
         let array = JSON.parse(localStorage["likedSong"]);
-        array.forEach((element) => {
+        array[0].songs.forEach((element) => {
+          console.log(element);
           if (element.id == songData.innerHTML.split("=")[0]) {
-            index = array.indexOf(element);
+            index = array[0].songs.indexOf(element);
             array.splice(index, 1);
           }
         });
-        localStorage["likedSong"] = JSON.stringify(array);
-        updateTable(0);
+        // localStorage["likedSong"] = JSON.stringify(array);
+        // updateTable(0);
       }
 
       const isLiked = () => {
         let array = JSON.parse(localStorage["likedSong"]);
-        array.forEach((element) => {
+        array[0].songs.forEach((element) => {
           if (element.id == songData.innerHTML.split("=")[0]) {
             color.classList.replace("fa-regular", "fa-solid");
             color.style.color = "red";

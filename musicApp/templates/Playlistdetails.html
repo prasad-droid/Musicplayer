@@ -78,21 +78,25 @@
           //PENDING 
           console.log(location.href)
           let playlistID = location.href.split('/')
+          //For naming
           if(playlistID[playlistID.length-1] == '101'){
             document.getElementById('listName').innerHTML = "Liked Songs"
+            showlist(likedSong[0].songs,isLikedSongs=true) //to show liked song list
           }else{
             playlists.forEach(playlist=>{
-              console.log('done');
               if(playlist.playlistId == playlistID[playlistID.length-1]){
                 document.getElementById('listName').innerHTML = playlist.name
+                showlist(playlist.songs,isLikedSongs=false) // to show playlist songs
               }
             })
           }
-          console.log(likedSong)
-          function showlist()
+
+          function showlist(list,isLikedSongs)
           {
+            console.log(list);
             document.getElementById('Songname').innerHTML=''
-            likedSong.forEach((song,index)=>{
+            if(isLikedSongs){
+              list.forEach((song,index)=>{
               let link =  document.createElement('li')
               //link.setAttribute('href','/songplay/'+song.id)
               link.innerHTML=`<a href="/songplay/${song.id}">  <img src="{{songs.image.2.link}}"/> ${song.name}</a> 
@@ -102,16 +106,41 @@
                 `  
                 document.getElementById('Songname').appendChild(link)
               })
-              }
+            }else{
+              list.forEach((song,index)=>{
+              let link =  document.createElement('li')
+              //link.setAttribute('href','/songplay/'+song.id)
+              link.innerHTML=`<a href="/songplay/${song.id}">  <img src="{{songs.image.2.link}}"/> ${song.name}</a> 
+              <button class="remove" onclick="removefromPlaylist(${index},${playlistID[playlistID.length-1]})">
+                <i class="fa-solid fa-trash"></i>
+                </button>
+                `  
+                document.getElementById('Songname').appendChild(link)
+              })
+            }
+            
+          }
 
           function removeLiked(index){
             console.log(index);
             let likedSong = JSON.parse(localStorage['likedSong'])
-            likedSong.splice(index,1)
+            likedSong[0].songs.splice(index,1)
             localStorage['likedSong'] = JSON.stringify(likedSong)
-             showlist()
+            showlist(likedSong[0].songs)
           }
-          showlist()
-      </script>
+
+          function removefromPlaylist(index,id){
+            console.log(index);
+            let lists = JSON.parse(localStorage['playlists']);
+            lists.forEach((list)=>{
+              console.log(list);
+              if(list.playlistId == id){
+                list.songs.splice(index,1)
+                localStorage['playlists'] = JSON.stringify(lists)
+                showlist(list.songs,false)
+              }
+            })
+          }
+          </script>
 </body>
 </html>
