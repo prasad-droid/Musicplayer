@@ -15,10 +15,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
     <style>
       #lyricsContainer{
         display: none;
         overflow-y: scroll;
+      }
+      .function{
+        display: flex;
+        justify-content: space-around;
+        width: 180px;
+        font-size: 20px;
       }
     </style>
   </head>
@@ -35,15 +42,17 @@
         <div class="details mt-2">
           <h5 class="text-white">{{songs.name}}</h5>
           <h6 class="text-white">{{songs.artists.primary.0.name}}</h6>
-          <i class="fa-regular fa-heart" id="color" onclick="likeItem()"> </i>
+          <div class="function">
+          <i class="fa-regular fa-heart" id="color" onclick="likeItem()" data-bs-toggle="tooltip" data-bs-placement="top" title="like"> </i>
           <i
             class="fa-solid fa-plus"
             data-bs-toggle="modal"
             data-bs-target="#myModal"
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Add Playlist"
           ></i>
-          <i class="fa-solid fa-music" onclick="fetchLyrics()"></i>
+          <i class="fa-solid fa-music" onclick="fetchLyrics()" data-bs-toggle="tooltip" data-bs-placement="top" title="lyrics"></i>
         </div>
-
+      </div>
         <div class="range mt-4 mx-5 d-flex">
           <audio src="{{songs.downloadUrl.1.url}}" controls autoplay></audio>
         </div>

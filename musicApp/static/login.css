@@ -25,6 +25,7 @@
   background: rgba(255, 255, 255, 0.274);
   width: 400px;
   backdrop-filter: blur(10px);
+  margin-bottom: 20px;
 }
 
 .btn-outline-primary {

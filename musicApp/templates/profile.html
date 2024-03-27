@@ -14,11 +14,29 @@
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'style.css'%}" />
+  <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
 <style>
   .card p {
   color: white;
   font-weight: bold;
   font-size: 14px !important;
+}
+.fa-circle-user{
+  font-size: 150px;
+}
+.containers{
+  margin-left: 200px;
+  margin-top: -100px;
+}
+.btn-outline-danger{
+  background-color: transparent !important;
+  padding: 20px;
+  width: 150px;
+  border-radius: 10px;
+  margin-top: 10%;
+}
+.btn-outline-danger:hover{
+  border-color: white;
 }
 </style>
 <body>
@@ -29,8 +47,6 @@
             title="Home"></i></a>
         <a href="music" id="music"><i class="fa-solid fa-music" data-bs-toggle="tooltip" data-bs-placement="left"
             title="Library"></i></a>
-            <a href=""><i class="fa-solid fa-sliders" data-bs-toggle="tooltip" data-bs-placement="left"
-              title="Equilizer"></i></a>
               <a href="profile"><i class="fa-solid fa-user"></i></a>
       </div>
     </div>  
@@ -49,11 +65,16 @@
         </div>
        
       </div>
+      <div class="img mx-4 pt-4 mt-4">
+        <i class="fa-regular fa-circle-user"></i>
+      </div>
       
       <div class="containers">
         <h1 class="text-white">Username :{{user.username}}</h1>
         <h1 class="text-white">Email :{{user.email}}</h1>
-        <a href="{% url 'logout' %}">Logout</a>
+        <div class="btm">
+        <a href="{% url 'logout' %}"> <button class="btn-outline-danger">Logout</button> </a>
+      </div>
     </div>
   </div>
 </div>
